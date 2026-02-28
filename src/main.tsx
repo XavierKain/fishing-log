@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
-try {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  )
-} catch(e) {
-  document.getElementById('root')!.innerHTML = '<pre style="color:red;padding:20px">' + String(e) + '</pre>'
-}
+const root = document.getElementById('root')!
+
+window.addEventListener('error', (e) => {
+  root.innerHTML = '<pre style="color:red;padding:20px;white-space:pre-wrap">ERROR: ' + e.message + '</pre>'
+})
+
+ReactDOM.createRoot(root).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)

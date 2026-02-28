@@ -18,4 +18,4 @@ export interface Catch {
   createdAt: number
 }
 
-export type Tab = 'log' | 'add' | 'stats' | 'map'
+export type Tab = 'log' | 'add' | 'stats' | 'map' | 'settings'
